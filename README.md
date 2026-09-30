@@ -19,7 +19,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: efegokdemir/shopify-app-changeguard@25a4384802e0bf3555822d10b6197a4ef962ada5 # v0.4.2
+      - uses: efegokdemir/shopify-app-changeguard@1fee675575e3dfbbe2c8d702323aa7c4240efcb1 # v0.5.0
         with:
           base_sha: ${{ github.event.pull_request.base.sha }}
           head_sha: ${{ github.event.pull_request.head.sha }}
@@ -43,6 +43,8 @@ npx changeguard --base-ref main --head-ref HEAD --all-configs --json
 `--fail-on never` is the default. `review` exits 1 when findings exist. Invalid or unreviewable input exits 2. See [CLI reference](docs/cli.md).
 
 ## Supported checks
+
+Each finding also includes a deterministic risk level (`low`, `medium`, or `high`) and a short rationale so reviewers can prioritize attention. Risk levels are review guidance, not Shopify validation or deployment approval; sensitive values remain redacted.
 
 | Area | Review behaviour |
 | --- | --- |

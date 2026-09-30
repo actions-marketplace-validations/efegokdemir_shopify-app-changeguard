@@ -20,7 +20,7 @@ with the following contents:
               fetch-depth: 0
               persist-credentials: false
 
-          - uses: efegokdemir/shopify-app-changeguard@25a4384802e0bf3555822d10b6197a4ef962ada5 # v0.4.2
+          - uses: efegokdemir/shopify-app-changeguard@1fee675575e3dfbbe2c8d702323aa7c4240efcb1 # v0.5.0
             with:
               base_sha: ${{ github.event.pull_request.base.sha }}
               head_sha: ${{ github.event.pull_request.head.sha }}
@@ -35,7 +35,8 @@ The Action reviews changed Shopify app TOML files and writes a job summary
 containing counts, rule IDs, documentation links, and an explicit review
 status. It keeps TOML-derived text out of raw workflow-command output and
 exposes the structured report through outputs: `outcome`, `finding_count`,
-`reviewed_file_count`, `unreviewed_count`, `rule_ids`, `highest_severity`,
+`reviewed_file_count`, `unreviewed_count`, `rule_ids`, `highest_severity`, and
+`highest_risk`,
 and `report`. Set `fail_on`
 to `never`, `review`, or `unreviewed`; the default fails only when review
 is incomplete.
